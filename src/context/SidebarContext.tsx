@@ -2,6 +2,7 @@ import { createContext, useContext, useState, useEffect } from "react";
 
 type SidebarContextType = {
   isExpanded: boolean;
+  isMobile: boolean;
   isMobileOpen: boolean;
   isHovered: boolean;
   activeItem: string | null;
@@ -35,7 +36,7 @@ export const SidebarProvider: React.FC<{ children: React.ReactNode }> = ({
 
   useEffect(() => {
     const handleResize = () => {
-      const mobile = window.innerWidth < 768;
+      const mobile = window.innerWidth < 1024;
       setIsMobile(mobile);
       if (!mobile) {
         setIsMobileOpen(false);
@@ -66,6 +67,7 @@ export const SidebarProvider: React.FC<{ children: React.ReactNode }> = ({
     <SidebarContext.Provider
       value={{
         isExpanded: isMobile ? false : isExpanded,
+        isMobile,
         isMobileOpen,
         isHovered,
         activeItem,

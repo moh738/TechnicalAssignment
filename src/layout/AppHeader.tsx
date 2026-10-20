@@ -9,13 +9,14 @@ import UserDropdown from "../components/header/UserDropdown";
 const AppHeader: React.FC = () => {
   const [isApplicationMenuOpen, setApplicationMenuOpen] = useState(false);
 
-  const { isMobileOpen, toggleSidebar, toggleMobileSidebar } = useSidebar();
+  const { isMobile, isMobileOpen, toggleSidebar, toggleMobileSidebar } =
+    useSidebar();
 
   const handleToggle = () => {
-    if (window.innerWidth >= 1024) {
-      toggleSidebar();
-    } else {
+    if (isMobile) {
       toggleMobileSidebar();
+    } else {
+      toggleSidebar();
     }
   };
 

@@ -11,6 +11,8 @@ node_modules
 dist
 dist-ssr
 *.local
+/Technical-assessment.zip
+/Technical-assessment/
 
 # Editor directories and files
 !.vscode/extensions.json
